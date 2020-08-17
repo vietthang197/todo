@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Clone') {
             if (fileExists('todo')) {
                 steps {
                     sh 'git clone https://192.168.65.129/root/todo.git'
