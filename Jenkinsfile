@@ -1,9 +1,8 @@
 pipeline {
     agent any
     stages {
-        stage('Pull') {
-            def exists = fileExists('todo')
-            if (exists) {
+        stage('Build') {
+            if (fileExists('todo')) {
                 steps {
                     sh 'git clone https://192.168.65.129/root/todo.git'
                 }
