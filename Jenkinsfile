@@ -1,6 +1,10 @@
 pipeline {
     agent any
     stages {
+        node {
+            def exists = fileExists '/root/elp/test.php'
+            
+        }
         stage('Clone') {
             if (fileExists('todo')) {
                 steps {
