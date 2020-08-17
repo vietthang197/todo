@@ -3,8 +3,8 @@ pipeline {
     stages {
         stage('Clone') {
                 steps {
-                    sh 'cd todo'
-                    sh 'git pull origin master'
+                    sh 'rm -rf todo'
+                    sh 'git clone https://192.168.65.129/root/todo.git'
                 }
         }
         stage('Build') {
