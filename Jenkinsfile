@@ -1,7 +1,7 @@
 pipeline {
     agent any
+    def pom = readMavenPom('pom.xml')
     stages {
-        def pom = readMavenPom('pom.xml')
         stage('Clone') {
             steps {
                 sh 'git clone https://192.168.65.129/root/todo.git'
