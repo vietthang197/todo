@@ -1,6 +1,5 @@
 pipeline {
     agent any
-    def pom = readMavenPom('pom.xml')
     stages {
         stage('Clone') {
             steps {
@@ -8,6 +7,7 @@ pipeline {
             }
         }
         stage('Build') {
+            pom = readMavenPom('pom.xml')
             steps {
                 sh 'mvn clean package'
                 sh 'docker push levietthang1997/${pom.projectName}:${pom.projectVersion}'
