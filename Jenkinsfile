@@ -7,7 +7,9 @@ pipeline {
             }
         }
         stage('Build') {
-            def pom = readMavenPom file: 'pom.xml'
+            script {
+                def pom = readMavenPom file: 'pom.xml'
+            }
             steps {
                 sh 'mvn clean package'
                 sh 'docker push levietthang1997/${pom.projectName}:${pom.projectVersion}'
