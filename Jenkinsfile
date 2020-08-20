@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                sh 'git clone https://192.168.65.129/root/todo.git'
+                git branch: "master", url: 'https://192.168.65.129/root/todo.git'
             }
         }
         stage('Build') {
