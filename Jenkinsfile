@@ -9,7 +9,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                   def pom = readMavenPom file: "pom.xml"
+                    pom = readMavenPom file: 'pom.xml'
                 }
                 sh 'mvn clean package dockerfile:build'
                 sh "echo ${pom}"
