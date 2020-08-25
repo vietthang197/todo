@@ -10,11 +10,11 @@ pipeline {
 
             steps {
                 script {
-                    pom = readMavenPom file: 'pom.xml'
-                    echo pom.version
+                    pom = readMavenPom()
                 }
                 sh 'mvn clean package dockerfile:build'
                 sh "echo ${pom}"
+                sh "echo ${pom.projectName}"
                 //sh "docker push levietthang1997/${projectName}:${projectVersion}"
             }
         }
