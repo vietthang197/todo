@@ -11,10 +11,7 @@ pipeline {
                 script {
                    def pom = readMavenPom file: 'pom.xml'
                 }
-                sh 'mvn clean package'
-                script {
-                        pom = readMavenPom(file: 'pom.xml')
-                 }
+                sh 'mvn clean package dockerfile:build'
                 sh 'docker push levietthang1997/${pom.projectName}:${pom.projectVersion}'
             }
         }
