@@ -15,6 +15,8 @@ pipeline {
                      name = pom.name
                     sh 'mvn clean package dockerfile:build'
                     sh "docker push levietthang1997/${name}:${version}"
+                    sh "docker pull levietthang1997/${name}:${version}"
+                    sh "docker-compose up -d"
                 }
             }
         }
